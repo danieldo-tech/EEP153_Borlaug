@@ -1,0 +1,8 @@
+.ipynb_checkpoints/
+__pycache__/
+.DS_Store
+*.pyc
+students.json
+students.json.gpg
+*.key
+*.pem
