@@ -1,138 +1,88 @@
-{
- "cells": [
-  {
-   "cell_type": "markdown",
-   "id": "0dbe1b77-7ca2-45b2-8aae-1b45fdb714da",
-   "metadata": {},
-   "source": [
-    "# Project 4: Hacking Food and Nutrition\n",
-    "\n",
-    "## Overview\n",
-    "\n",
-    "This project analyzes food demand and nutrition outcomes for households in Tanzania. The goal is to estimate how households choose different foods based on prices, budgets, and household characteristics, then use those food choices to predict nutrient intake.\n",
-    "\n",
-    "The project also compares predicted nutrition to recommended nutrition levels and tests simple policy options that could improve nutritional outcomes.\n",
-    "\n",
-    "## Research Question\n",
-    "\n",
-    "How can changes in household food budgets or food prices improve nutrition for Tanzanian households?\n",
-    "\n",
-    "## Data\n",
-    "\n",
-    "This project uses the following Tanzania datasets:\n",
-    "\n",
-    "- Food Expenditures\n",
-    "- Food Prices\n",
-    "- Household Characteristics\n",
-    "- Food Composition Table\n",
-    "\n",
-    "The expenditure data shows how much households spend on different foods. The price data helps convert spending into quantities. The household characteristics data describes each household. The food composition table shows the nutrients in each food.\n",
-    "\n",
-    "## Methods\n",
-    "\n",
-    "The project follows these steps:\n",
-    "\n",
-    "1. Clean and prepare the Tanzania data.\n",
-    "2. Match foods across the expenditure, price, and nutrition datasets.\n",
-    "3. Estimate a food demand system using the `CFEDemands` package.\n",
-    "4. Predict household food expenditures and quantities.\n",
-    "5. Convert predicted food quantities into nutrient intake.\n",
-    "6. Compare predicted nutrient intake to recommended nutrition levels.\n",
-    "7. Identify the biggest nutritional deficiency.\n",
-    "8. Set a policy goal to reduce that deficiency.\n",
-    "9. Simulate two policies:\n",
-    "   - increasing household food budgets\n",
-    "   - subsidizing a nutrient-rich food\n",
-    "10. Compare which policy is more effective.\n",
-    "\n",
-    "## Files\n",
-    "\n",
-    "- `Project4.ipynb`: main notebook with the full analysis\n",
-    "- `README.md`: project description and instructions\n",
-    "- `test_project4.py`: unit tests\n",
-    "- Tanzania CSV files: raw data used in the analysis\n",
-    "\n",
-    "## How to Run\n",
-    "\n",
-    "1. Upload all Tanzania CSV files into the project folder.\n",
-    "2. Open `Project4.ipynb`.\n",
-    "3. Run the notebook from top to bottom.\n",
-    "4. Review the tables, graphs, deficiency results, and policy simulations.\n",
-    "\n",
-    "## Required Packages\n",
-    "\n",
-    "The notebook uses:\n",
-    "\n",
-    "- `numpy`\n",
-    "- `pandas`\n",
-    "- `matplotlib`\n",
-    "- `CFEDemands`\n",
-    "\n",
-    "The notebook installs `CFEDemands` automatically if it is not already installed.\n",
-    "\n",
-    "## Main Outputs\n",
-    "\n",
-    "The notebook creates:\n",
-    "\n",
-    "- cleaned expenditure, price, household, and nutrition datasets\n",
-    "- estimated food demand system\n",
-    "- Frisch elasticity results\n",
-    "- predicted food quantities\n",
-    "- predicted household nutrient intake\n",
-    "- nutritional deficiency rates\n",
-    "- policy simulation results\n",
-    "- rough policy cost comparison\n",
-    "- final summary table\n",
-    "\n",
-    "## Policy Goal\n",
-    "\n",
-    "The project identifies the nutrient with the highest deficiency rate among households. The policy goal is to reduce that deficiency rate by half.\n",
-    "\n",
-    "## Policy Simulations\n",
-    "\n",
-    "Two policy options are tested:\n",
-    "\n",
-    "### 1. Food Budget Transfer\n",
-    "\n",
-    "This policy increases each household’s food budget by different amounts and checks whether nutrition improves.\n",
-    "\n",
-    "### 2. Targeted Food Subsidy\n",
-    "\n",
-    "This policy lowers the price of a food that is rich in the target nutrient and checks whether households consume enough additional nutrients to meet the policy goal.\n",
-    "\n",
-    "## Summary\n",
-    "\n",
-    "This project shows how food demand estimates can be used to study nutrition policy. By connecting household food choices to nutrient intake, the analysis identifies a major nutritional challenge and compares different ways to improve household nutrition."
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "ba7ed978-eac3-4439-a729-55ac43747a4c",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  }
- ],
- "metadata": {
-  "kernelspec": {
-   "display_name": "Python 3 (ipykernel)",
-   "language": "python",
-   "name": "python3"
-  },
-  "language_info": {
-   "codemirror_mode": {
-    "name": "ipython",
-    "version": 3
-   },
-   "file_extension": ".py",
-   "mimetype": "text/x-python",
-   "name": "python",
-   "nbconvert_exporter": "python",
-   "pygments_lexer": "ipython3",
-   "version": "3.11.14"
-  }
- },
- "nbformat": 4,
- "nbformat_minor": 5
-}
+---
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .md
+      format_name: markdown
+      format_version: '1.3'
+      jupytext_version: 1.17.1
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+---
+
+<!-- #region -->
+# Project 4: Hacking Food and Nutrition
+
+## Overview
+
+This project analyzes food demand and nutrition outcomes for households in Tanzania. The goal is to estimate how households choose different foods based on prices, budgets, and household characteristics, then use those food choices to predict nutrient intake.
+
+The project also compares predicted nutrition to recommended nutrition levels and tests simple policy options that could improve nutritional outcomes.
+
+## Research Question
+
+How can changes in household food budgets or food prices improve nutrition for Tanzanian households?
+
+## Data
+
+This project uses the following Tanzania datasets:
+
+- Food Expenditures
+- Food Prices
+- Household Characteristics
+- Food Composition Table
+
+The expenditure data shows how much households spend on different foods. The price data helps convert spending into quantities. The household characteristics data describes each household. The food composition table shows the nutrients in each food.
+
+## Methods
+
+The project follows these steps:
+
+1. Clean and prepare the Tanzania data.
+2. Match foods across the expenditure, price, and nutrition datasets.
+3. Estimate a food demand system using the `CFEDemands` package.
+4. Predict household food expenditures and quantities.
+5. Convert predicted food quantities into nutrient intake.
+6. Compare predicted nutrient intake to recommended nutrition levels.
+7. Identify the biggest nutritional deficiency.
+8. Set a policy goal to reduce that deficiency.
+9. Simulate sample policies
+10. Compare which policy is more effective.
+
+## Files
+
+- `Project4.ipynb`: main notebook with the full analysis
+- `README.md`: project description and instructions
+- `test_project4.py`: unit tests
+- Tanzania CSV files: raw data used in the analysis
+
+
+## Main Outputs
+
+The notebook creates:
+
+- cleaned expenditure, price, household, and nutrition datasets
+- estimated food demand system
+- Frisch elasticity results
+- predicted food quantities
+- predicted household nutrient intake
+- nutritional deficiency rates
+- policy simulation results
+- rough policy cost comparison
+- final summary table
+
+
+## Policy Goal
+
+The project identifies the nutrient with the highest deficiency rate among households. The policy goal is to reduce that deficiency rate by half.
+
+## Summary
+
+This project shows how food demand estimates can be used to study nutrition policy. By connecting household food choices to nutrient intake, the analysis identifies a major nutritional challenge and compares different ways to improve household nutrition.
+<!-- #endregion -->
+
+```python
+
+```
