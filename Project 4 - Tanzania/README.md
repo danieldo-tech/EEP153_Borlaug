@@ -53,9 +53,9 @@ The project follows these steps:
 
 ## Files
 
-- `Project4.ipynb`: main notebook with the full analysis
+- `Project4Code.ipynb`: main notebook with the full analysis
 - `README.md`: project description and instructions
-- `test_project4.py`: unit tests
+- `unit_tests.py`: unit tests
 - Tanzania CSV files: raw data used in the analysis
 
 
